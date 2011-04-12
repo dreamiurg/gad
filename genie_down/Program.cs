@@ -41,7 +41,7 @@ namespace genie_down
          {
             HelpText help = new HelpText(Program.headingInfo);
             help.Copyright = new CopyrightInfo("Dmitry Guyvoronsky", 2010);
-            help.AddPreOptionsLine("http://cqgiki.denver.cqg/bin/view/Projects/Gateway/GenieAttachmentDownloader");
+            help.AddPreOptionsLine("http://github.com/dreamiurg/gad");
             help.AddOptions(this);
             return help; 
          }
