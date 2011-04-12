@@ -1,6 +1,6 @@
 # Genie Attachment Downloader
 
-This programs helps to download Siebel (Genie) defect/suggestion/inquiry attachments on unstable network connections.
+This programs helps to download Siebel (Genie) defect/suggestion/inquiry attachments on unstable network connections. Works with Siebel 6.0
 
 ## What it does
 
@@ -9,7 +9,7 @@ This programs helps to download Siebel (Genie) defect/suggestion/inquiry attachm
 1. Generates and prints to stdout commands to copy and unzip the attachments (``xcopy`` + ``dlls/sseunzip.exe``). You may redirect output to batch file and run it to get attachments
 
 You may add this program to ``PATH`` env variable for your convenience:
-``setx path “c:\Program Files\CQG\Genie Attachment Downloader\;%PATH%”``
+``setx path "c:\Program Files\CQG\Genie Attachment Downloader\;%PATH%"``
 
 ## Usage
 
