@@ -1,3 +1,7 @@
 *.suo
 *.obj
 *.pdb
+bin/
+obj/
+Debug/
+Release/
