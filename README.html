@@ -1,0 +1,41 @@
+<p>This programs helps to download Siebel (Genie) defect/suggestion/inquiry attachments on unstable network connections. Works with Siebel 6.0</p>
+<h1>Releases</h1>
+<h2>1.1</h2>
+<ul>
+<li>UNC path to where Siebel attachments are stored can now be specified wia command line -r option</li>
+</ul>
+<h2>1.0</h2>
+<ul>
+<li>First public release</li>
+</ul>
+<h1>What it does</h1>
+<ol>
+<li>Connects to Siebel (Genie) database. You may specify username/password on the command line. If not set, will use your Windows logon name (will work for most Genie users)</li>
+<li>Finds information about defect's attachments.</li>
+<li>Generates and prints to stdout commands to copy and unzip the attachments (<code>xcopy</code> + <code>dlls/sseunzip.exe</code>). You may redirect output to batch file and run it to get attachments</li>
+</ol>
+<p>You may add this program to <code>PATH</code> env variable for your convenience:
+<code>setx path "c:\Program Files\CQG\Genie Attachment Downloader\;%PATH%"</code></p>
+<h1>Usage</h1>
+<h2>Options</h2>
+<p>The following command line options are supported</p>
+<pre><code>s, server        Database server to connect to (default: sblsdb)
+u, user          Username to connect to DB (default: your Windows logon
+                 username)
+p, password      Password to connect to DB (default: same as username)
+d, database      Database to use (default: SiebelDB)
+r, remotepath    UNC path to Siebel attachments (default:
+                 \\d8sfs.denver.cqg\GenieAttachments\)
+n, number        Required. Defect/Suggestion/Inquiry number
+v, verbose       Verbose mode
+help             Display this help screen.
+</code></pre>
+<h2>Sample: download attachments for defect/suggestion/inquiry 226572502</h2>
+<p>To download attachments for defect 226572502 into current folder, run:</p>
+<pre><code>gad.exe -n 226572502 &gt; go.bat &amp;&amp; go.bat
+</code></pre>
+<h2>Sample: batch automation</h2>
+<p>You can create fetch.bat that will create new folder by defect number and downloads files there:</p>
+<pre><code>mkdir %1
+gad.exe -n %1 -p 111111 &gt; %1\go.bat &amp;&amp; (cd %1 &amp;&amp; call go.bat)
+</code></pre>
